@@ -2,6 +2,12 @@ import pandas as pd
 import plotly.express as px
 import streamlit as st
 
+# Get Pandas version
+print("Pandas version:", pd.__version__)
+
+# Get Streamlit version
+print("Streamlit version:", st.__version__)
+
 # Import data file "vehicles_us.csv"
 
 rawurl = 'https://raw.githubusercontent.com/jmmelgarejo/tripletenrepo_sd/main/vehicles_us.csv'
