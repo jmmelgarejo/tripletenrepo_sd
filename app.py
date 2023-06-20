@@ -4,7 +4,7 @@ import plotly.express as px
 
 # Import data file "vehicles_us.csv"
 
-df_vehiclesus = pd.read_csv('/Users/josemelgarejo-mini/Documents/GitHub/tripletenrepo_sd/vehicles_us.csv')
+df_vehiclesus = pd.read_csv('vehicles_us.csv')
 
 # Create columns for monochrome and color using paint_color column
 
