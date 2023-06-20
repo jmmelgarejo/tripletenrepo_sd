@@ -32,6 +32,9 @@ Created a visual with a:
     2) Checkbox option to show a histogram plot showing price for all vehicles
 
 For reviewer:
+6/20- Updated versions on requirements file.
+
+6/19-
 Render deploys the package successfully but it does not launch.
 Streamlit loads locally but not on the web.  
 The app could be expanded after it loads succesfully.
