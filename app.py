@@ -12,30 +12,6 @@ df_vehiclesus = pd.read_csv(rawurl)
 df_vehiclesus['Monochrome'] = 'Color'
 df_vehiclesus.loc[df_vehiclesus['paint_color'].isin(['black', 'white']), 'Monochrome'] = 'Monochrome'
 
-# Eliminate NaN values for 4wd assuming 1=4x4 or "Yes" and 0=2wd or "No"
-
-df_vehiclesus['is_4wd'].fillna('0', inplace=True)
-
-for index, row in df_vehiclesus.iterrows():
-    if row['is_4wd'] == 1.0:
-        df_vehiclesus.loc[index, '4x4'] = 'Yes'
-    else:
-        df_vehiclesus.loc[index, '4x4'] = 'No'
-
-# Create mileage categories to sort via mileage to 100k
-
-for index, row in df_vehiclesus.iterrows():
-    if row['odometer'] < 25000:
-        df_vehiclesus.loc[index, 'Mileage'] = '<20k'
-    elif row['odometer'] >= 25000 and row['odometer'] < 50000:
-        df_vehiclesus.loc[index, 'Mileage'] = '25k - 50k'
-    elif row['odometer'] >= 50000 and row['odometer'] < 75000:
-        df_vehiclesus.loc[index, 'Mileage'] = '50k - 75k'
-    elif row['odometer'] >= 75000 and row['odometer'] < 100000:
-        df_vehiclesus.loc[index, 'Mileage'] = '75k - 100k'
-    else:
-        df_vehiclesus.loc[index, 'Mileage'] = '>100k'
-
 # Calculate mean price of vehicles
 
 mean_price = df_vehiclesus['price'].mean()
@@ -49,13 +25,6 @@ df_color = df_vehiclesus[df_vehiclesus['Monochrome'] == 'Color']
 
 color_mean = df_color['price'].mean()
 monochrome_mean = df_monochrome['price'].mean()     
-
-# Calculate the mean for color and monochrome by drivetrain
-
-color_4x4_mean = (df_color[df_color['4x4'] == 'Yes']['price']).mean()
-color_2wd_mean = (df_color[df_color['4x4'] == 'No']['price']).mean()
-monochrome_4x4_mean = (df_monochrome[df_monochrome['4x4'] == 'Yes']['price']).mean()
-monochrome_2wd_mean = (df_monochrome[df_monochrome['4x4'] == 'No']['price']).mean()
 
 # Create Scatter Plot to Show Odometer vs. Price
 st.header("Odometer vs. Price")
