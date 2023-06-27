@@ -31,7 +31,26 @@ Created a visual with a:
     1) Scatterplot comparing odometer readings and price
     2) Checkbox option to show a histogram plot showing price for all vehicles
 
+TO RUN LOCALLY:
+
+You will need an interpreter such as Visual Studio Code with plugins for python and streamlit installed
+
+1) Download listing in 'FILES' above
+2) Find 'app.py' and open in interpreter such as Visual Studio Code 
+3) RUN 'app.py' Note that it may be necessary to replace the rawurl with your local file path: 
+
+rawurl = 'https://raw.githubusercontent.com/jmmelgarejo/tripletenrepo_sd/main/vehicles_us.csv'
+df_vehiclesus = pd.read_csv(rawurl)
+
+4) Once your  run the app.py code, you will need to paste the command given in terminal, with the filepath specified similar to the example below:
+
+ streamlit run /Users/user-name/Documents/GitHub/tripletenrepo_sd/app.py
+
 For reviewer:
+6/27 - Updated README File with instructions for running the program locally
+Updated model_year and odometer NaN with medians per request in EDA notebook
+Note: Conclusion of the EDA findings are written in the EDA notebook under Conclusion and Recommendations.
+
 6/20- Updated versions on requirements file.
 
 6/19-
