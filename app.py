@@ -33,7 +33,7 @@ color_mean = df_color['price'].mean()
 monochrome_mean = df_monochrome['price'].mean()     
 
 # Create Scatter Plot to Show Odometer vs. Price
-st.header("Odometer vs. Price")
+st.header("Price Analysis of Vehicles - Overall Findings")
 fig_odo_price = px.scatter(df_vehiclesus, x='odometer', y='price')
 
 fig_odo_price.update_xaxes(title='Odometer')
